@@ -1,104 +1,80 @@
 # 📊 Proyecto Final – Dashboard & Análisis de Datos - The Power
 
 ## Descripción del proyecto
-Este proyecto forma parte del módulo "Dashboard & Análisis de Datos" del programa de formación de The Power Business School. Su objetivo es aplicar técnicas de limpieza, transformación y visualización de datos a partir de un conjunto real del sector tech internacional.
-
-Se han desarrollado diferentes KPIs para identificar tendencias en modalidades de trabajo, analizar salarios por experiencia, tipo de jornada y divisa, así como detectar extremos salariales a nivel global.
-
+Este proyecto forma parte del módulo "Dashboard & Análisis de Datos" del programa de formación de The Power Business School. Su objetivo es explorar la evolución salarial del sector tecnológico entre 2020 y 2024 a partir de un dataset real.
+A través de un proceso de limpieza, normalización, análisis y visualización, se han desarrollado múltiples KPIs utilizando exclusivamente **tablas dinámicas en Google Sheets**, cumpliendo con los requisitos metodológicos del proyecto.
 ---
 
 ## Fuente de los datos
 - Dataset: [Global Tech Salary Dataset (Kaggle)](https://www.kaggle.com/datasets/yaaryiitturan/global-tech-salary-dataset)
 - Periodo: 2020 – 2024
 - Registros: ~4.600 filas
-- Columnas clave: `salary_in_usd`, `remote_ratio`, `experience_level`, `company_location`, `job_title`, `work_year`, `salary_currency`, `company_size`, `employment_type`
+- Columnas clave: `salary_in_usd`, `remote_ratio`, `experience_level`, , `job_title`, `work_year`, `employment_type`
 
 ---
 
 ## Herramienta utilizada
 - **Google Sheets**
-- **Gráficos utilizados**:
-  - Gráfico circular (distribución de modalidad laboral global)
-  - Gráfico de líneas (tendencia de modalidad por año)
-  - Gráfico de burbujas (presencialidad y tamaño de la empresa)
-  - Gráfico de columnas (salario medio por experiencia)
-  - Gráficos de tarjetas visuales (país mejor/peor pagador)
-  - Gráfico radar (comparativa de salario mensual por tipo de jornada y divisa)
-- **Funciones aplicadas**:
-  - `SI` para transformar campos como `remote_ratio`
-  - `INDICE` y `COINCIDIR` para localizar país con salario máximo y mínimo
-  - `MAX` y `MIN` para detectar extremos salariales
-  - `PROMEDIO.SI` para calcular medias por condición
+---
+
+
+## ✅ 1. Transformación y limpieza de datos
+
+Antes del análisis, se realizó un proceso exhaustivo de preparación del dataset, incluyendo:
+
+- 🔎 **Eliminación de duplicados**
+- ✅ **Normalización de campos clave**, como `employment_type` (→ `tipo_empleo`) y `remote_ratio` (→ `tipo_remoto`)
+- ⚠️ **Detección y tratamiento de valores vacíos o inconsistentes**
+- 📐 **Validación de tipos de datos** (`salary_in_usd`, `work_year`, etc.)
+- 🧽 Revisión de estructura y formato general para garantizar la fiabilidad de los KPIs posteriores
 
 ---
 
-## Transformación y limpieza de datos
-- Se creó una variable `type_modality` a partir de `remote_ratio`
-- Se normalizaron los niveles de experiencia y tipo de empleo
-- Se creó una variable de comparación entre país del empleado y país de la empresa
-- Se agregó una columna para salario mensual calculado desde `salary_in_usd`
-- Se filtraron los datos por año y experiencia para identificar extremos salariales
+## 📊 2. Análisis descriptivo – KPIs construidos
+
+El análisis se ha estructurado en torno a los siguientes indicadores clave:
+
+1. **Salario promedio global en USD por año**
+2. **Crecimiento salarial interanual**
+3. **Porcentaje de crecimiento anual respecto al total**
+4. **Top 5 países con mayor salario promedio**
+5. **Salario promedio por nivel de experiencia**
+6. **Evolución salarial por rol**
+7. **Distribución por tipo de empleo** (Full-time, Part-time, Contract, Freelance)
+8. **Top 5 roles mejor pagados y peor pagados por año**
+9. **Identificación de roles nuevos en 2024**
+10. **Cruce entre roles nuevos y extremos salariales**
+11. **Top 5 nuevos roles mejor pagados en 2024**
+12. **Evolución del tipo de trabajo remoto (presencial, híbrido, remoto total)**
+13. **Relación entre modalidad de trabajo y salario promedio**
+
+Cada uno ha sido construido mediante **tablas dinámicas**, y en algunos casos se ha recurrido a **tablas auxiliares filtradas** para facilitar la visualización o análisis comparativo.
 
 ---
 
-## Proceso seguido para la construcción del dashboard
-1. En primer lugar, se seleccionó una fuente de datos sencilla y conocida (dataset de Kaggle).
-2. Se diseñaron inicialmente tres KPIs base que sirvieron como guía para comenzar a construir el dashboard.
-3. El resto de los KPIs surgieron de forma progresiva, en función de las conclusiones visuales y gráficas que se iban obteniendo.
-4. El proceso para cada KPI ha sido consistente:
-   - Interpretación directa del dataset
-   - Análisis del valor que puede aportar cada columna
-   - Cruce de variables según lógica de negocio o patrón observable
-   - Creación de una tabla dinámica adaptada
-   - Aplicación de fórmulas auxiliares si era necesario
-   - Diseño del gráfico correspondiente y extracción de conclusiones
-5. Según mi experiencia, la mayor dificultad ha sido definir correctamente los KPIs. No por la parte técnica, sino por la parte conceptual: tener un objetivo claro y medible sobre el que construir cada visualización.
-6. Una vez definido el KPI, trabajar con los datos ha sido mucho más fluido y sistemático.
+## 📌 3. Visualización – Construcción del dashboard
+
+El dashboard se ha diseñado en Google Sheets con una estructura clara y visualmente equilibrada:
+
+- 📈 Gráficos de líneas y columnas para la evolución temporal de salarios
+- 📊 Gráficos circulares y de barras para distribución por categorías
+- 🧠 Bloques de insights redactados a partir del análisis visual y numérico
+- 🔍 Secciones diferenciadas para KPIs principales y secundarios
+
+Todas las visualizaciones están conectadas a datos dinámicos filtrados por año, tipo de trabajo y otras variables clave.
 
 ---
 
-## Análisis descriptivo (KPIs)
+## ✍️ Autoría
 
-### 🔶 KPI 1 – Modalidad de trabajo en el sector tech
-
-1. **Distribución Global (2020–2024)**
-   - Gráfico circular que muestra que el 66,3% de los trabajadores trabajan en modalidad on-site
-
-2. **Tendencia anual por modalidad (2020–2024)**
-   - Gráfico de líneas con evolución de trabajo remoto, híbrido y presencial
-
-3. **Relación con tamaño de empresa**
-   - Gráfico de burbujas: las empresas medianas concentran el 93,8% de la modalidad presencial
-
----
-
-### 🔶 KPI 2 – Salario y experiencia profesional
-
-4. **Comparativa de salario medio por experiencia (2020 vs 2024)**
-   - Gráfico de columnas que muestra clara progresión de salario desde Junior a Senior
-
-5. **País mejor pagador a Juniors (2020–2024)**
-   - Tarjeta visual que destaca que `US` tiene el salario medio más alto para perfiles Junior: 107.703,63 USD
-
-6. **País peor pagador a Juniors (2020–2024)**
-   - Tarjeta visual que destaca que `RO` tiene el salario medio más bajo: 26.000 USD
-
----
-
-### 🔶 KPI 3 – Jornada laboral y divisa
-
-7. **Comparativa de salario mensual por tipo de jornada y moneda**
-   - Gráfico radar que compara `Full-time`, `Part-time` y `Otro` en divisas como `USD`, `EUR`, `GBP`, `CAD`
-   - Se observan diferencias claras en retribución mensual entre monedas
-
----
-
-## Conclusiones
-- La presencialidad sigue siendo dominante, impulsada principalmente por empresas medianas
-- El salario medio crece significativamente con el nivel de experiencia, especialmente entre perfiles Senior
-- Las diferencias por moneda y tipo de jornada muestran brechas relevantes en la retribución según ubicación o condiciones laborales
-
----
-
+Trabajo desarrollado por **Eva María Mera Vivar**  
+Máster en Análisis de Datos – Proyecto Final
 ## Acceso al dashboard
 - https://docs.google.com/spreadsheets/d/1o_wwuJYMVcMho8WRNHhP61Ng2oaePybhxCkofsn0opE/edit?usp=sharing
+
+# 📊 Análisis salarial en el sector tecnológico (2020–2024)
+
+🔗 **[Ver dashboard en Google Sheets]([https://docs.google.com/spreadsheets/d/TU_ENLACE_AQUI](https://docs.google.com/spreadsheets/d/1_J309v4AuZ8Dk3OCAvlzgJwF8kTV2X038X2gSJac3PI/edit?usp=sharing)
+**
+
+---
