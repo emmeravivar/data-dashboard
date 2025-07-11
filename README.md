@@ -70,10 +70,6 @@ Todas las visualizaciones están conectadas a datos dinámicos filtrados por añ
 Trabajo desarrollado por **Eva María Mera Vivar**  
 Máster en Análisis de Datos – Proyecto Final
 ## Acceso al dashboard
-- https://docs.google.com/spreadsheets/d/1o_wwuJYMVcMho8WRNHhP61Ng2oaePybhxCkofsn0opE/edit?usp=sharing
-
-# 📊 Análisis salarial en el sector tecnológico (2020–2024)
-
 🔗 **[Ver dashboard en Google Sheets]([https://docs.google.com/spreadsheets/d/TU_ENLACE_AQUI](https://docs.google.com/spreadsheets/d/1_J309v4AuZ8Dk3OCAvlzgJwF8kTV2X038X2gSJac3PI/edit?usp=sharing)
 **
 
